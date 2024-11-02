@@ -1,0 +1,62 @@
+#!/usr/bin/env node
+
+const readline = require('readline');
+const { handleInput } = require('../lib/main');
+
+function displayHelp() {
+    console.log(`
+Usage: capital-gains
+
+Provide a JSON array of financial market operations via standard input.
+
+Example:
+[
+  {"operation":"buy", "unit-cost":10.00, "quantity":10000},
+  {"operation":"sell", "unit-cost":20.00, "quantity":5000}
+]
+
+You can pipe input from a file or echo command.
+
+Examples:
+  echo '[{"operation":"buy","unit-cost":10,"quantity":10000},{"operation":"sell","unit-cost":20,"quantity":5000}]' | capital-gains
+
+  capital-gains < operations.json
+    `);
+}
+
+function main() {
+    const args = process.argv.slice(2);
+    if (args.includes('-h') || args.includes('--help')) {
+        displayHelp();
+        process.exit(0);
+    }
+
+    const rl = readline.createInterface({
+        input: process.stdin,
+        output: process.stdout,
+        terminal: false
+    });
+
+    let inputData = '';
+
+    rl.on('line', (line) => {
+        if (line.trim() === '') {
+            rl.close();
+        } else {
+            inputData += line;
+        }
+    });
+
+    rl.on('close', () => {
+        handleInput(inputData);
+    });
+
+    process.on('SIGINT', function () {
+        console.log('Over and Out!');
+        process.exit(0);
+      });
+
+    console.log("Please, enter your stock financial market operations list as a JSON array:");
+}
+
+main();

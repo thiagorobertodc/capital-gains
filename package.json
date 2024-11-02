@@ -1,0 +1,19 @@
+{
+  "name": "capital-gains",
+  "version": "1.0.0",
+  "description": "A CLI tool to process stock financial market operations and calculate taxes.",
+  "main": "lib/main.js",
+  "bin": {
+    "capital-gains": "./bin/capital-gains"
+  },
+  "scripts": {
+    "start": "node bin/capital-gains",
+    "test": "jest"
+  },
+  "author": "Thiago Roberto",
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "jest": "^29.6.1"
+  }
+}
