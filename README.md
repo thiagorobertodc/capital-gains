@@ -59,8 +59,9 @@ Recommended Method: To avoid manual input complexities and ensure smooth operati
 You can pipe JSON input directly into the CLI using the echo command.
 
         
-echo '[{"operation":"buy","unit-cost":10,"quantity":100},{"operation":"sell","unit-cost":15,"quantity":50},{"operation":"sell","unit-cost":15,"quantity":50}]
-    [{"operation":"buy","unit-cost":10,"quantity":10000},{"operation":"sell","unit-cost":20,"quantity":5000},{"operation":"sell","unit-cost":5,"quantity":5000}]' | capital-gains
+    echo '[{"operation":"buy","unit-cost":10,"quantity":100},{"operation":"sell","unit-cost":15,"quantity":50},{"operation":"sell","unit-cost":15,"quantity":50}]
+    [{"operation":"buy","unit-cost":10,"quantity":10000},{"operation":"sell","unit-cost":20,"quantity":5000},       {"operation":"sell","unit-cost":5,"quantity":5000}]' | capital-gains
+
         
 
 3. Manual Input
