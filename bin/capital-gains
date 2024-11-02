@@ -55,8 +55,6 @@ function main() {
         console.log('Over and Out!');
         process.exit(0);
       });
-
-    console.log("Please, enter your stock financial market operations list as a JSON array:");
 }
 
 main();
